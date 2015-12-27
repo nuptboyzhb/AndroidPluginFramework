@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@android:color/white" >
+
+	<TextView
+		android:id="@+id/text_view"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:background="#ffcecece"
+		android:padding="4dp"
+		android:text="I am in bundle layout" />
+
+	<ImageView
+		android:id="@+id/image_view"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/text_view"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="10dp"
+		android:src="@drawable/bundle_img" />
+
+</RelativeLayout>
