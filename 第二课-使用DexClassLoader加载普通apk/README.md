@@ -108,16 +108,72 @@ public class BundleClassLoaderManager {
 注意点：<br>
 
 - 1.install方法<br>
-
+install方法主要是将assets中的apk全部拷贝到私有目录，然后再遍历私有目录，使用BundleDexClassLoader加载apk文件，然后将这些BundleDexClassLoader保存到数组中。
 
 - 2.loadClass方法<br>
+该方法先从当前的ClassLoader中查找需要的类，如果找不到，在从List<BundleDexClassLoader>中遍历查找。
 
 ### DEMO运行
+在MainActivity中，我们可以通过如下方式，调用apk类中的方法：<br>
+```java
+      private void loadApk() {
+		try {
+			Class<?> clazz = BundleClassLoaderManager.loadClass(getApplicationContext(),
+					"net.mobctrl.normal.apk.Utils");
+			Constructor<?> constructor = clazz.getConstructor();
+			Object bundleUtils = constructor.newInstance();
 
+			Method printSumMethod = clazz.getMethod("printSum", Context.class,
+					int.class, int.class, String.class);
+			printSumMethod.setAccessible(true);
+			Integer sum = (Integer) printSumMethod.invoke(bundleUtils,
+					getApplicationContext(), 10, 20, "计算结果");
+			System.out.println("debug:sum = " + sum);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
+	}
+```
+
+与MultiDex不同时，我们是通过BundleClassLoaderManager来加载类的，而不是当前的ClassLoader。
 
 ### 改进方案
+正如BundleClassLoaderManager中的loadClass方法，其实我们创建一个ClassLoader对象，通过重写当前ClassLoader的findClass方法即可，然后在Override的findClass方法中，首先从当前ClassLoader中查找类，然后再从BundleDexClassLoader中遍历查找，这样既可以在Host项目中调用Bundle中的类，也能够在Bundle中调用Host中的类。
 
+```java
 
+       mClassLoader = new ClassLoader(super.getClassLoader()) {
 
+			@Override
+			protected Class<?> findClass(String className)
+					throws ClassNotFoundException {
+				Class clazz = BundleClassLoaderManager.loadClass(context,className);
+				if (clazz == null) {
+					throw new ClassNotFoundException(className);
+				}
+				return clazz;
+			}
+		};
 
+```
 
+##总结
+上一篇博客和这一篇博客将的都是类的加载。如果所需要加载的类都是工具类，不需要加载资源等，那么上面的方案都没啥问题。但是如果加载的类是Fragment或者Activity等UI，需要引用资源文件，这又改如何处理呢？
+
+下一篇博文：Android资源的离线加载。
+
+##参考
+1.DexClassLoader源码
+2.DexClassLoader用法
