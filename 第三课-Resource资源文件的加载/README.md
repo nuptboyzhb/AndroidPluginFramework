@@ -116,9 +116,11 @@ View view = LayoutInflater.from(context).inflate(R.layout.main_fragment, null);
 	}
 
 ```
-我们在Activity的attachBaseContext方法中，对Context的mResources进行替换，这样，我们就可以加载离线apk中的布局了。
+<br>
+我们在Activity的attachBaseContext方法中，对Context的mResources进行替换，这样，我们就可以加载离线apk中的布局了。<br>
 
 ##资源文件的打包过程
+
 如果想要做到插件化，需要了解Android资源文件的打包过程，这样可以为每一个插件进行编号，然后按照规则生成R文件。例如，以携程DynamicAPK为例，它将插件的R文件按照如下规则：<br>
 
 - 1.R文件为int型，前8位代表插件的Id，其中两个特殊的Id：Host是0x7f，android系统自带的是以0x01开头.
@@ -126,6 +128,11 @@ View view = LayoutInflater.from(context).inflate(R.layout.main_fragment, null);
 - 3.后面16位是资源的编号
 
 按照上述规则生成对应的插件apk。然后在运行时，我们可以写一个ResourceManager类，它继承自Resource对象，然后所有的Activity，都将其context的mResource成员变量修改为ResourceManager类，然后Override其方法，然后在加载资源时，根据不同的id的前缀，查找对应插件的Resource即可。也就是说，用一个类做分发。
+
+
+##源码
+
+https://github.com/nuptboyzhb/AndroidPluginFramework
 
 ##Android插件化相关资料
 

@@ -174,6 +174,11 @@ install方法主要是将assets中的apk全部拷贝到私有目录，然后再�
 
 下一篇博文：Android资源的离线加载。
 
+
+##源码
+
+https://github.com/nuptboyzhb/AndroidPluginFramework
+
 ##参考
 1.DexClassLoader源码
 2.DexClassLoader用法

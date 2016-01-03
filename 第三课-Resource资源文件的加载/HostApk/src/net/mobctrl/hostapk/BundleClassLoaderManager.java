@@ -11,7 +11,6 @@ import android.os.Build;
 
 /**
  * @Author Zheng Haibo
- * @Mail mochuan.zhb@alibaba-inc.com
  * @Company Alibaba Group
  * @PersonalWebsite http://www.mobctrl.net
  * @version $Id: BundleClassLoaderManager.java, v 0.1 2015年12月11日 下午7:30:59

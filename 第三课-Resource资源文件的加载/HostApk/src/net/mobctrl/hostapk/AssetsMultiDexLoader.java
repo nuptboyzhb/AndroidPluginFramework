@@ -25,7 +25,6 @@ import dalvik.system.DexFile;
 
 /**
  * @Author Zheng Haibo
- * @Mail mochuan.zhb@alibaba-inc.com
  * @Company Alibaba Group
  * @PersonalWebsite http://www.mobctrl.net
  * @version $Id: AssetsDex.java, v 0.1 2015年12月10日 下午5:36:23 mochuan.zhb Exp $

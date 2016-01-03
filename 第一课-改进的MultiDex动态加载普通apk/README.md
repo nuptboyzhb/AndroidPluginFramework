@@ -37,7 +37,6 @@ import dalvik.system.DexFile;
 
 /**
  * @Author Zheng Haibo
- * @Mail mochuan.zhb@alibaba-inc.com
  * @Company Alibaba Group
  * @PersonalWebsite http://www.mobctrl.net
  * @version $Id: AssetsDex.java, v 0.1 2015年12月10日 下午5:36:23 mochuan.zhb Exp $
@@ -508,7 +507,6 @@ import android.util.Log;
 
 /**
  * @Author Zheng Haibo
- * @Mail mochuan.zhb@alibaba-inc.com
  * @Company Alibaba Group
  * @PersonalWebsite http://www.mobctrl.net
  * @version $Id: AssetsManager.java, v 0.1 2015年12月11日 下午4:41:10 mochuan.zhb Exp $
@@ -633,6 +631,10 @@ private void loadClass(){
 	}
 ```
 
+
+##源码
+
+https://github.com/nuptboyzhb/AndroidPluginFramework
 
 #参考文章
 [1].[ClassLoader的工作原理](http://segmentfault.com/a/1190000004062880)<br>

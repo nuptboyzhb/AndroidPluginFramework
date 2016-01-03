@@ -11,7 +11,6 @@ import android.view.View;
 
 /**
  * @Author Zheng Haibo
- * @Mail mochuan.zhb@alibaba-inc.com
  * @Company Alibaba Group
  * @PersonalWebsite http://www.mobctrl.net
  * @version $Id: BundleActivity.java, v 0.1 2015年12月16日 下午3:49:00 mochuan.zhb Exp $

@@ -11,7 +11,6 @@ import android.util.Log;
 
 /**
  * @Author Zheng Haibo
- * @Mail mochuan.zhb@alibaba-inc.com
  * @Company Alibaba Group
  * @PersonalWebsite http://www.mobctrl.net
  * @version $Id: AssetsManager.java, v 0.1 2015年12月11日 下午4:41:10 mochuan.zhb Exp $
