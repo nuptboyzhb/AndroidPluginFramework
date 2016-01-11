@@ -92,6 +92,7 @@ View view = LayoutInflater.from(context).inflate(R.layout.main_fragment, null);
 - 1.创建一个自己的ContextImpl，Override其方法。<br>
 - 2.通过反射，直接替换当前context的mResources私有成员变量。<br>
 当然，我们是使用第二种方案：<br>
+
 ```java
     @Override
 	protected void attachBaseContext(Context context) {
@@ -114,8 +115,8 @@ View view = LayoutInflater.from(context).inflate(R.layout.main_fragment, null);
 			e.printStackTrace();
 		}
 	}
-
 ```
+
 <br>
 我们在Activity的attachBaseContext方法中，对Context的mResources进行替换，这样，我们就可以加载离线apk中的布局了。<br>
 

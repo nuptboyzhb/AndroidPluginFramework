@@ -1,0 +1,1 @@
+java -cp D:\android_sdk_for_studio\tools\lib\sdklib.jar com.android.sdklib.build.ApkBuilderMain C:\Users\mochuan.zhb\newworkspace\BundleApk5\bin\unsigned.apk -v -u -z C:\Users\mochuan.zhb\newworkspace\BundleApk5\bin\resources.ap_ -f C:\Users\mochuan.zhb\newworkspace\BundleApk5\bin\classes.dex -rf C:\Users\mochuan.zhb\newworkspace\BundleApk5\src
