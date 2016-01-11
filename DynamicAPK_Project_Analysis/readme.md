@@ -20,7 +20,7 @@ Bundle的Application：BundleBaseApplication
       ->BundleArchiveRevision(optDexFile)
         ->BundlePathLoader(installBundleDexs)
          ->...
-![](BundlePathLoadInvoke.png)
+![ClassLoader加载路路径](BundlePathLoadInvoke.png)
 ###3.热修复
 由于所有的插件都被加载到同一个ClassLoader当中，因为，热修复的方案都是从dexElements数组的顺序入手，修改expandFieldArray方法的实现，将修复的类放到dexElements的前方。核心代码如下（详见BundlePathLoader）：
 ```java
