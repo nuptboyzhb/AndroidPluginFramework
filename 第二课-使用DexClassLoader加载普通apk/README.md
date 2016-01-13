@@ -1,5 +1,7 @@
 #Android插件化（二）：使用DexClassLoader动态加载assets中的apk#
-
+<br>
+##Author:莫川
+<br>
 ##简介
 上一篇博客讲到，我们可以使用MultiDex.java加载离线的apk文件。需要注意的是，apk中的类是加载到当前的PathClassLoader当中的，如果apk文件过多，可能会出现ANR的情况。那么，我们能不能使用DexClassLoader加载apk呢？当然是可以的！首先看一下[Doc文档](http://developer.android.com/intl/zh-cn/reference/dalvik/system/DexClassLoader.html).
 
