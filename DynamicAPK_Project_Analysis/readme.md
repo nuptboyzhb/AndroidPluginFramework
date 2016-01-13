@@ -1,5 +1,6 @@
 #携程DynamicAPK插件化框架源码分析
-
+<br>
+##Author：莫川
 ##插件核心思想
 
 ###1.aapt的改造

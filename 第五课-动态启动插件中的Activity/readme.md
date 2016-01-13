@@ -1,5 +1,7 @@
 #Android插件化基础（4），动态启动插件中的Activity
 
+<br>
+##Author：莫川
 ##简介
 如何动态启动插件中的Activity呢？我们首先分析，启动插件中的Activity需要做那些准备？
 

@@ -1,5 +1,7 @@
 #Android插件化（一）：使用改进的MultiDex动态加载assets中的apk#
 
+<br>
+##Author：莫川
 ##简介
 为了解决65535方法数超标的问题，Google推荐使用MultiDex来加载classes2.dex,classes3.dex等等，其基本思想就是在运行时动态修改ClassLoader，以达到动态加载类的目的。为了更好的理解MultiDex的工作原理，可以先看一下ClassLoader的工作原理[1].然后参见PathClassLoader的源码，当然，它继承自BaseDexClassLoader，主要源码都在BaseDexClassLoader中。MultiDex加载离线apk的过程如下：
 ![multidex.png](multidex.png)
